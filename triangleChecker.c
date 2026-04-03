@@ -3,7 +3,7 @@
 
 int main(int argc, char const *argv[]) {
     setlocale(LC_ALL, "en-NG.UTF-8");   // Fixes possible degree "°" symbol display issues, setting encoding to UTF-8
-    printf (
+    printf ( // print group watermark
          " __     __       ___               __        ___                         \n"
         "|__) | / _` |__|  |      /\\  |\\ | / _` |    |__                          \n"
         "|  \\ | \\__> |  |  |     /~~\\ | \\| \\__> |___ |___                         \n"
