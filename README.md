@@ -2,52 +2,50 @@
 This repository contains 2 folders with 4 files with code written in C, solving [these questions](./questions.md)
 
 
-## Right Angle Triangle checker
+## [Right Angle Triangle checker](./triangleChecker.c)
 A program that collects two angles of a triangle and determines if it is or isnt a right angle triangle
 
 
-## Setup
+### Setup
 
 Clone CSC102-Right-angle-triangle-checker into your preferred directory
 
 ```bash
-    git clone https://github.com/Miva-Beau-Fashion/CSC102-Right-angle-triangle-checker.git
+    git clone https://github.com/Miva-Beau-Fashion/COS-102.git
 ```
-
-## Run triangle checker
 Open terminal, run the following right after cloning the repo
 
 ``` bash
-  cd CSC102-Right-angle-triangle-checker
+  cd CSC-102
 ```
 
 
-### Run [angleChecker.c](./angleChecker.c)
+#### Run [angleChecker.c](./angleChecker.c)
 If you want to try the Angle Checker without a function
 ```pwsh
-  gcc solution.c -o solution
+  gcc triangleChecker.c -o triangleChecker
 ```
 
 ```pwsh
-  ./solution.exe
+  ./triangleChecker.exe
 ```
 
 
-### Run [angleCheckerWFunction.c](./angleCheckerWFunction.c)  
+#### Run [angleCheckerWFunction.c](./angleCheckerWFunction.c)  
 If you want to try the Angle Checker with a function (less lines of code)
 
 ```pwsh
-  gcc solutionFunction.c -o solutionFunction
+  gcc triangleCheckerWFunction.c -o triangleCheckerWFunction
 ```
 
 ```pwsh
-  ./solutionFunction.exe
+  ./triangleCheckerWFunction.exe
 ```
 
-## Flowchart and algorithm
-### [Flowchart](./solutionFlowchart.png)
-![Image of Flowchart](./solutionFlowchart.png)
-### [Algorithm](./algorithm.md)
+### Flowchart and algorithm
+#### [Flowchart](./triangleCheckerFlowchart.png)
+![Image of Flowchart](./triangleCheckerFlowchart.png)
+#### [Algorithm](./triangleCheckerFlowchart.png)
 STEP 1: START  
 STEP 2: INITIALIZE INTEGER VARIABLES `angle1`, `angle2`  , and `angleEval`  
 STEP 3: COLLECT AND STORE FIRST ANGLE IN `angle1`  
@@ -65,4 +63,61 @@ STEP 8: Evaluate
 -  IF `angle1 = 90`, `angle2 = 90` or `angleEval = 90`, PRINT "Triangle IS right angled"  
 - ELSE PRINT "Triangle is NOT right angled"
 
+STEP 9: END
+
+
+## [Palindrome Checker](./palindrome.c)
+A program that collects a number and checks if it is a palindrome (reverses number and check if it remains the same)
+
+## Setup
+
+Clone CSC102-Right-angle-triangle-checker into your preferred directory
+
+```bash
+    git clone https://github.com/Miva-Beau-Fashion/COS-102.git
+```
+Open terminal, run the following right after cloning the repo
+
+``` bash
+  cd CSC-102
+```
+
+#### Run [palindrome.c](./palindrome.c)
+```pwsh
+  gcc palindrome.c -o palindrome
+```
+
+```pwsh
+  ./palindrome.exe
+```
+
+### Flowchart and algorithm
+#### [Flowchart](./palindromeFlowchart.png)
+![Image of Flowchart](./palindromeFlowchart.png)
+#### [Algorithm](./palindromeAlgorithm.md)
+STEP 1: START  
+STEP 2: INITIALIZE integer variable `num` and character buffer `stringifiedInteger[20]`  
+STEP 3: PROMPT user for a number and STORE input in `num`  
+STEP 4: CONVERT `num` to string using `snprintf` and STORE in `stringifiedInteger`  
+STEP 5: DUPLICATE `stringifiedInteger` into pointer `duplicateIntString` using `strdup` 
+ - This creates a unique copy in heap memory for manipulation
+
+STEP 6: CALL `reverseString` function passing `duplicateIntString`:
+ - INITIALIZE `startPointer` to the first character address
+ - INITIALIZE `endPointer` to the last character address (length - 1)
+ - LOOP from `i = 0` while `i < stringLength / 2`:
+    - STORE character at `endPointer` in `tempVar`
+    - ASSIGN character at `startPointer` to `endPointer`
+    - ASSIGN `tempVar` to `startPointer`
+    - INCREMENT `startPointer` (move right)
+    - DECREMENT `endPointer` (move left)
+    - INCREMENT `i` by 1
+
+STEP 7: EVALUATE equality using `strcmp(stringifiedInteger, duplicateIntString)`
+ - IF result IS 0:
+    - PRINT "The number is a palindrome"
+ - ELSE:
+    - PRINT "The number is NOT a palindrome"
+
+STEP 8: RELEASE heap memory using `free(duplicateIntString)`
 STEP 9: END
